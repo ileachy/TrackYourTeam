@@ -1,0 +1,24 @@
+{
+  "name": "trackyourteam",
+  "version": "1.0.0",
+  "description": "<h1 align=\"center\">Track Your Team</h1>",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ileachy/TrackYourTeam.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ileachy/TrackYourTeam/issues"
+  },
+  "homepage": "https://github.com/ileachy/TrackYourTeam#readme",
+  "dependencies": {
+    "console.table": "^0.10.0",
+    "inquirer": "^8.2.2",
+    "mysql2": "^2.3.3"
+  }
+}
