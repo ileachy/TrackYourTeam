@@ -3,6 +3,11 @@ CREATE DATABASE TrackYourTeam_db;
 -- Uses created db --
 USE TrackYourTeam_db;
 
+-- Drop tables for re-seed --
+DROP TABLE IF EXISTS department;
+DROP TABLE IF EXISTS role;
+DROP TABLE IF EXISTS employee;
+
 -- Create schema tables --
 CREATE TABLE department(
   id INTEGER PRIMARY KEY AUTO_INCREMENT,
@@ -23,6 +28,6 @@ CREATE TABLE employee(
   last_name VARCHAR(30) NOT NULL,
   role_id INTEGER,
   manager_id INTEGER,
-  CONSTRAINT fk_role FOREIGN KEY (role_id) REFERENCES role(id)
+  CONSTRAINT fk_role FOREIGN KEY (role_id) REFERENCES role(id),
   CONSTRAINT fk_manager FOREIGN KEY (manager_id) REFERENCES manager(id) ON DELETE SET NULL
 );
