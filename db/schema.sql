@@ -4,7 +4,7 @@ CREATE DATABASE TrackYourTeam_db;
 USE TrackYourTeam_db;
 
 -- Create schema tables --
-CREATE TABLE depatment(
+CREATE TABLE department(
   id INTEGER PRIMARY KEY AUTO_INCREMENT,
   name VARCHAR(50) NOT NULL
 );
@@ -13,7 +13,8 @@ CREATE TABLE role(
   id INTEGER PRIMARY KEY,
   title VARCHAR(30) NOT NULL,
   salary DECIMAL NOT NULL,
-  department_id INTEGER
+  department_id INTEGER,
+  CONSTRAINT fk_department FOREIGN KEY (department_id) REFERENCES department(id)
 );
 
 CREATE TABLE employee(
