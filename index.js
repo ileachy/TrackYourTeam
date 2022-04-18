@@ -99,7 +99,23 @@ const menuOptions = (answer) => {
               name: "eRole",
             },
           ])
-          .then();
+          .then((input) => {
+            const info = `INSERT INTO employee (first_name, last_name, role_id)
+            VALUES (?, ?, ?)`;
+            const added = [
+              input.firstName,
+              input.lastName,
+              input.eDep,
+              input.eRole,
+            ];
+            db.query(info, (err) => {
+              if (err) {
+                console.log("There was an error");
+              } else {
+                console.log(added + " has been added");
+              }
+            });
+          });
       }
       if (answer === "Add a new Employee?") {
         inquirer.prompt([]);
