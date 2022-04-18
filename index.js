@@ -56,8 +56,8 @@ const menuOptions = (answer) => {
           .prompt([
             {
               type: "input",
-              name: "newDep",
               message: "What department are you adding?",
+              name: "newDep",
             },
           ])
           .then((input) => {
@@ -76,7 +76,30 @@ const menuOptions = (answer) => {
           });
       }
       if (answer === "Add a new Role?") {
-        inquirer.prompt([]);
+        inquirer
+          .prompt([
+            {
+              type: "input",
+              message: "Enter employees first name.",
+              name: "firstName",
+            },
+            {
+              type: "input",
+              message: "Enter employees last name.",
+              name: "lastName",
+            },
+            {
+              type: "input",
+              message: "Enter employees department.",
+              name: "eDep",
+            },
+            {
+              type: "input",
+              message: "Please enter a role id for employee.",
+              name: "eRole",
+            },
+          ])
+          .then();
       }
       if (answer === "Add a new Employee?") {
         inquirer.prompt([]);
