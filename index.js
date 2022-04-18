@@ -76,6 +76,9 @@ const menuOptions = (answer) => {
           });
       }
       if (answer === "Add a new Role?") {
+        inquirer.prompt([]);
+      }
+      if (answer === "Add a new Employee?") {
         inquirer
           .prompt([
             {
@@ -116,9 +119,6 @@ const menuOptions = (answer) => {
               }
             });
           });
-      }
-      if (answer === "Add a new Employee?") {
-        inquirer.prompt([]);
       }
       if (answer === "Update an Employees Role?") {
       }
