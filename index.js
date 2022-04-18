@@ -76,7 +76,23 @@ const menuOptions = (answer) => {
           });
       }
       if (answer === "Add a new Role?") {
-        inquirer.prompt([]);
+        inquirer.prompt([
+          {
+            type: "input",
+            message: "Enter new role title.",
+            name: "newRole",
+          },
+          {
+            type: "input",
+            message: "Enter salary for role.",
+            name: "roleSal",
+          },
+          {
+            type: "input",
+            message: "Enter department id for the new role.",
+            name: "roleDep",
+          },
+        ]);
       }
       if (answer === "Add a new Employee?") {
         inquirer
