@@ -15,10 +15,7 @@ const db = mysql.createConnection({
 
 // checks for connection
 db.connect(function () {
-  if (error) {
-    throw error;
-  } else {
-  }
+  menuOptions();
 });
 
 // initial menu
@@ -44,18 +41,49 @@ const menuOptions = (answer) => {
     .then(() => {
       if (answer === "View all Departments?") {
         const output = `SELECT * FROM department`;
+        console.table(output);
       }
       if (answer === "View all Roles?") {
+        const output = `SELECT * FROM role`;
+        console.table(output);
       }
       if (answer === "View all Employees?") {
+        const output = `SELECT * FROM employee`;
+        console.table(output);
       }
       if (answer === "Add a new Department?") {
+        inquirer
+          .prompt([
+            {
+              type: "input",
+              name: "newDep",
+              message: "What department are you adding?",
+            },
+          ])
+          .then((input) => {
+            const added = input.newDep;
+            const info = `INSERT INTO department (name)
+          VALUES (?)`;
+            db.query(info, (err) => {
+              if (err) {
+                console.log("There was an error");
+                menuOptions();
+              } else {
+                console.log(added + " has been added");
+                menuOptions();
+              }
+            });
+          });
       }
       if (answer === "Add a new Role?") {
+        inquirer.prompt([]);
       }
       if (answer === "Add a new Employee?") {
+        inquirer.prompt([]);
       }
       if (answer === "Update an Employees Role?") {
+      }
+      if (answer === "Exit") {
       }
     });
 };
