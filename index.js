@@ -76,23 +76,36 @@ const menuOptions = (answer) => {
           });
       }
       if (answer === "Add a new Role?") {
-        inquirer.prompt([
-          {
-            type: "input",
-            message: "Enter new role title.",
-            name: "newRole",
-          },
-          {
-            type: "input",
-            message: "Enter salary for role.",
-            name: "roleSal",
-          },
-          {
-            type: "input",
-            message: "Enter department id for the new role.",
-            name: "roleDep",
-          },
-        ]);
+        inquirer
+          .prompt([
+            {
+              type: "input",
+              message: "Enter new role title.",
+              name: "newRole",
+            },
+            {
+              type: "input",
+              message: "Enter salary for role.",
+              name: "roleSal",
+            },
+            {
+              type: "input",
+              message: "Enter department id for the new role.",
+              name: "roleDep",
+            },
+          ])
+          .then((input) => {
+            const added = [input.newRole, input.roleSal, input.roleDep];
+            const info = `INSERT INTO role (title, salary, department_id)
+          VALUES (?, ?, ?)`;
+            db.query(info, (err) => {
+              if (err) {
+                console.log("There was an error");
+              } else {
+                console.log(added + " has been added");
+              }
+            });
+          });
       }
       if (answer === "Add a new Employee?") {
         inquirer
