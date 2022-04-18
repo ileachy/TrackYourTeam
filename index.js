@@ -37,11 +37,13 @@ const menuOptions = (answer) => {
           "Add a new Role?",
           "Add a new Employee?",
           "Update an Employees Role?",
+          "Exit",
         ],
       },
     ])
     .then(() => {
       if (answer === "View all Departments?") {
+        const output = `SELECT * FROM department`;
       }
       if (answer === "View all Roles?") {
       }
