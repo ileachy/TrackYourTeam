@@ -19,7 +19,7 @@ db.connect(function () {
 });
 
 // initial menu
-const menuOptions = (answer) => {
+const menuOptions = () => {
   inquirer
     .prompt([
       {
@@ -38,7 +38,7 @@ const menuOptions = (answer) => {
         ],
       },
     ])
-    .then(() => {
+    .then((answer) => {
       if (answer === "View all Departments?") {
         const output = `SELECT * FROM department`;
         console.table(output);
