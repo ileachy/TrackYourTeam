@@ -164,8 +164,8 @@ const menuOptions = (answer) => {
             },
             {
               type: "input",
-              message: "Enter updated department.",
-              name: "eDep",
+              message: "Enter employee id who needs updated.",
+              name: "updateId",
             },
             {
               type: "input",
@@ -177,9 +177,17 @@ const menuOptions = (answer) => {
             const added = [
               input.firstName,
               input.lastName,
-              input.eDep,
+              input.updateId,
               input.eRole,
             ];
+            const info = `UPDATE employee SET first_name=(?), last_name=(?), role_id=(?), WHERE id=(?)`;
+            db.query(info, (err) => {
+              if (err) {
+                console.log("There was an error");
+              } else {
+                console.log(added + " has been updated");
+              }
+            });
           });
       }
     });
