@@ -150,8 +150,37 @@ const menuOptions = (answer) => {
           });
       }
       if (answer === "Update an Employees Role?") {
-      }
-      if (answer === "Exit") {
+        inquirer
+          .prompt([
+            {
+              type: "input",
+              message: "Enter updated first name.",
+              name: "firstName",
+            },
+            {
+              type: "input",
+              message: "Enter updated last name.",
+              name: "lastName",
+            },
+            {
+              type: "input",
+              message: "Enter updated department.",
+              name: "eDep",
+            },
+            {
+              type: "input",
+              message: "Please enter an updated role id for employee.",
+              name: "eRole",
+            },
+          ])
+          .then((input) => {
+            const added = [
+              input.firstName,
+              input.lastName,
+              input.eDep,
+              input.eRole,
+            ];
+          });
       }
     });
 };
